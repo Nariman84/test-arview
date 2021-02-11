@@ -1,0 +1,39 @@
+:host {
+    .actions {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        display: flex;
+        opacity: 0;
+        color: #5a5a5a;
+
+        .btn-action {
+            cursor: pointer;
+        }
+
+        .edit {
+            margin-right: 10px;
+        }
+    }
+
+    &:hover .actions {
+        opacity: 1;
+    }
+
+    .title {
+        margin-bottom: 10px;
+        color: #03a9f4;
+
+        span {
+            border-bottom: 1px solid #03a9f4;
+        }
+    }
+
+    .desc__item {
+        max-height: 120px;
+        overflow: auto;
+    }
+}
+
+
+

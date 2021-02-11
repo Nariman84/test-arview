@@ -1,0 +1,34 @@
+<ng-container *ngIf="event">
+    <div class="actions">
+        <div class="btn-action edit" (click)="editEvent()">
+            <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="btn-action delete" (click)="deleteEvent()">
+            <i class="far fa-trash-alt"></i>
+        </div>
+    </div>
+    <div class="title">
+        <span>{{event.title}}</span>
+    </div>
+    <div class="desc" [ngSwitch]="self.EventType[event.type]">
+
+        <ng-template [ngSwitchCase]="self.EventType.holiday">
+            <div class="desc__item">
+                Бюджет: ${{event.budget}}
+            </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="self.EventType.event">
+            <div class="desc__item">
+                Адрес: {{event.address}}
+            </div>
+            <div class="desc__item">
+                Время: {{event.time}}
+            </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="self.EventType.note">
+            <div class="desc__item">
+                {{event.note}}
+            </div>
+        </ng-template>
+    </div>
+</ng-container>

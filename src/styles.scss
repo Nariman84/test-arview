@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+ngb-datepicker {
+    margin-bottom: 20px;
+    border: 1px solid #5a5a5a!important;
+}
+
+.ngb-dp-today .cell-date {
+    background: cadetblue;
+    color: #2f2f2f;
+    font-weight: bold;
+}
+
+.ngb-dp-day:focus {
+    outline: none!important;
+}
+
+.app-btn {
+    border: 1px solid #5a5a5a;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+        background: #f5f5dc;
+    }
+
+    &:disabled {
+        border-color: #dadada;
+
+        &:hover {
+            background: none;
+        }
+    }
+}

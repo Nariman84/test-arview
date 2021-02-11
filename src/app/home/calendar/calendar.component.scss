@@ -1,0 +1,70 @@
+.wrapper-calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.cell-date {
+    width: 2em;
+    height: 2em;
+    line-height: 2rem;
+    text-align: center;
+    border-radius: 50%;
+    transition: color 0.2s;
+
+    &:hover {
+        background: #e8e8e8;
+    }
+}
+
+.btn-light {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.outside {
+    opacity: 0.5;
+}
+
+.hidden {
+    background: pink;
+}
+
+.current-date {
+    background: cadetblue;
+    color: #2f2f2f;
+    font-weight: bold;
+}
+
+.has-event {
+    background: #ffd8cb;
+}
+
+.selected-date {
+    background: #a7d8ff;
+}
+
+.symbols {
+    margin-top: 20px;
+    text-align: center;
+
+    .wrap-symbol {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .symbol {
+        margin-bottom: 10px;
+        padding: 0 20px;
+        min-height: 2.5em;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        border-radius: 100px;
+    }
+}
+
+.add-btn {
+    height: 30px;
+}

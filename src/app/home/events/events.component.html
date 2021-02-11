@@ -1,0 +1,13 @@
+<h3>События</h3>
+<div class="container">
+    <div class="inner-wrapper" [ngClass]="{'hide-border': !events?.length}">
+        <ng-container *ngFor="let event of events">
+            <div class="item-wrap">
+                <app-item-event
+                    [event]="event"
+                    (updateEventList)="updateEventList($event)"
+                ></app-item-event>
+            </div>
+        </ng-container>
+    </div>
+</div>

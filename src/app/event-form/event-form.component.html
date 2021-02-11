@@ -1,0 +1,118 @@
+<div class="form-container">
+
+    <h3>Добавить событие</h3>
+
+    <form novalidate
+        class="form"
+        [formGroup]="eventFormGroup"
+    >
+        <div class="form-row">
+            <label class="label" for="event-title">Название события</label>
+            <input
+                class="form-control"
+                type="text"
+                id="event-title"
+                formControlName="title"
+                autocomplete="off"
+            />
+            <div class="text-danger text-right"
+                *ngIf="eventFormGroup.controls['title'].invalid && eventFormGroup.controls['title'].touched"
+            >
+                Не указано название события
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label class="label" for="event-type">Тип события</label>
+            <select
+                class="form-control"
+                name=""
+                id="event-type"
+                autocomplete="off"
+                formControlName="type"
+            >
+                <option
+                    *ngFor="let eventType of eventTypes"
+                    [ngValue]="eventType.type"
+                >
+                    {{eventType.name}}
+                </option>
+            </select>
+        </div>
+
+        <ng-container *ngIf="isHoliday">
+            <div class="form-row">
+                <label class="label" for="budget">Бюджет мероприятия, $</label>
+                <input
+                    class="form-control"
+                    type="number"
+                    id="budget"
+                    formControlName="budget"
+                    autocomplete="off"
+                />
+                <div class="text-danger text-right"
+                    *ngIf="eventFormGroup.controls['budget'].invalid && eventFormGroup.controls['budget'].touched"
+                >
+                    Сколько это будет стоить?
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="isEvent">
+            <div class="form-row">
+                <label class="label" for="address">Куда идти?</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    id="address"
+                    formControlName="address"
+                    autocomplete="off"
+                />
+                <div class="text-danger text-right"
+                    *ngIf="eventFormGroup.controls['address'].invalid && eventFormGroup.controls['address'].touched"
+                >
+                    Не указано место мероприятия
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="label" for="event-time">Во сколько?</label>
+                <input
+                    class="form-control"
+                    type="time"
+                    id="event-time"
+                    formControlName="time"
+                />
+                <div class="text-danger text-right"
+                    *ngIf="eventFormGroup.controls['time'].invalid && eventFormGroup.controls['time'].touched"
+                >
+                    Не указано время мероприятия
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="isNote">
+            <div class="form-row">
+                <label class="label" for="note">Добавить заметку</label>
+                <textarea
+                    class="form-control"
+                    type="text"
+                    id="note"
+                    formControlName="note"
+                    autocomplete="off"
+                ></textarea>
+                <div class="text-danger text-right"
+                    *ngIf="eventFormGroup.controls['note'].invalid && eventFormGroup.controls['note'].touched"
+                >
+                    Поле "Заметки" не заполнено
+                </div>
+            </div>
+        </ng-container>
+
+
+        <div class="actions">
+            <button class="app-btn" (click)="cancel()">Отмена</button>
+            <button class="app-btn" (click)="saveEvent()" [disabled]="!isValidForm">Сохранить</button>
+        </div>
+    </form>
+</div>
